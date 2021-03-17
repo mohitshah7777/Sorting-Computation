@@ -1,6 +1,7 @@
 #! /bin/bash
 
 declare -A compute
+declare -a arr
 read -p "Enter 1st Number = " a
 read -p "Enter 2nd Number = " b
 read -p "Enter 3rd Number = " c
@@ -25,3 +26,11 @@ for key in ${!compute[@]}
 do
         echo $key "=" ${compute[$key]}
 done
+
+count=0
+for value in ${compute[@]}
+do
+        arr[$count]=$value
+        count=$((count+1))
+done
+echo "Computations in Array = " ${arr[@]}
