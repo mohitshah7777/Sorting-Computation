@@ -5,3 +5,4 @@ read -p "Enter 3rd Number = " c
 
 result1=$((a+b*c))
 result2=$((a*b+c))
+result3=$((c+a/b))
