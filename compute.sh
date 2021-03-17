@@ -2,6 +2,7 @@
 
 declare -A compute
 declare -a arr
+compute=([1]=0 [2]=0 [3]=0 [4]=0)
 read -p "Enter 1st Number = " a
 read -p "Enter 2nd Number = " b
 read -p "Enter 3rd Number = " c
@@ -51,3 +52,19 @@ do
 done
 
 echo "Sorted Results in Descending order = " ${arr[@]}
+
+for (( i=0; i<$size; i++ ))
+do
+        for (( j=0; j<$size-i-1; j++ ))
+        do
+                if [[ ${arr[j]} -gt ${arr[$((j+1))]} ]]
+                then
+                        temp=${arr[j]}
+                        arr[j]=${arr[$((j+1))]}
+                        arr[$((j+1))]=$temp
+                fi
+        done
+done
+
+echo "Sorted results in Ascending order = " ${arr[@]}
+
