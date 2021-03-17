@@ -34,3 +34,20 @@ do
         count=$((count+1))
 done
 echo "Computations in Array = " ${arr[@]}
+
+size=${#arr[@]}
+
+for (( k=0; k<$size; k++ ))
+do
+        for (( m=k+1; m<$size; m++ ))
+        do
+                if [[ ${arr[k]} -lt ${arr[m]} ]]
+                then
+                        temp1=${arr[k]}
+                        arr[k]=${arr[m]}
+                        arr[m]=$temp1
+                fi
+        done
+done
+
+echo "Sorted Results in Descending order = " ${arr[@]}
